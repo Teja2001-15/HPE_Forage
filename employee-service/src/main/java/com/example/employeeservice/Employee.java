@@ -15,6 +15,10 @@ public class Employee {
         this.title = title;
     }
 
+    // No-arg constructor for JSON deserialization
+    public Employee() {
+    }
+
     public String getEmployee_id() {
         return employee_id;
     }
@@ -33,6 +37,26 @@ public class Employee {
 
     public String getTitle() {
         return title;
+    }
+    
+    public void setEmployee_id(String employee_id) {
+        this.employee_id = employee_id;
+    }
+
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
+    }
+
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
     
 }

@@ -22,4 +22,8 @@ public class Employees {
     public List<Employee> getEmployeeList() {
         return employeeList;
     }
+
+    public void addEmployee(Employee employee) {
+        this.employeeList.add(employee);
+    }
 }
