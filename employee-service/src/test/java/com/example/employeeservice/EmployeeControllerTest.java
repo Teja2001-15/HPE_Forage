@@ -54,4 +54,22 @@ public class EmployeeControllerTest {
                 .andExpect(jsonPath("$.Employees", hasSize(6)))
                 .andExpect(jsonPath("$.Employees[5].employee_id", is("E999")));
     }
+
+    @Test
+    public void postEmployee_malformedJson_returnsBadRequest() throws Exception {
+        String badJson = "{ \"employee_id\": \"E123\", \"first_name\": \"Bob\" "; // missing closing brace
+
+        mockMvc.perform(post("/employees")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(badJson))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void postEmployee_emptyBody_returnsBadRequest() throws Exception {
+        mockMvc.perform(post("/employees")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(""))
+                .andExpect(status().isBadRequest());
+    }
 }
